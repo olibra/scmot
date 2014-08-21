@@ -3,7 +3,7 @@ class CreateTests < ActiveRecord::Migration
     create_table :tests do |t|
       t.string "name"
       t.decimal "weight", :precision => 5, :scale => 2
-      t.timestamps
+      t.date "created_at"
     end
   end
 end

@@ -1,0 +1,13 @@
+
+Record:
+
+Record.create(:member_id => 1, :weight => "23")
+
+Member:
+Member.create(:first_name => "Shiguang", :last_name => "Hao", :weight => "65", :high => "1.68", :gender => "M", :age => "32", :phone => "789456123", :plan => "plan_1", :target => "20")
+
+Member.create(:first_name => "Tom", :last_name => "Piechota", :weight => "98", :high => "1.8", :gender => "M", :age => "30", :phone => "654987321", :plan => "plan_2", :target => "80")
+
+Member.create(:first_name => "Roisin", :last_name => "Tang", :weight => "35", :high => "1.6", :gender => "F", :age => "25", :phone => "653214789", :plan => "plan_3", :target => "60")
+
+

@@ -6,11 +6,11 @@ gem 'rails', '4.1.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-gem 'twitter-bootstrap-rails'
-gem 'less-rails'
-
 require 'v8'
 gem 'therubyracer', '~> 0.12.1'
+
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

@@ -1,4 +1,25 @@
 
+LeaderDetails:
+	Leaderdetail.create(:leader_id => "1":first_name => "Graham", :last_name => "Glanville", :gender => "M", :phone => "987654321")
+	Leaderdetail.create(:leader_id => "2":first_name => "Alan", :last_name => "Burke", :gender => "M", :phone => "321654987")
+	Leaderdetail.create(:leader_id => "3":first_name => "David", :last_name => "Price", :gender => "M", :phone => "987654341")
+	Leaderdetail.create(:leader_id => "4":first_name => "Jessica", :last_name => "Eynaud", :gender => "F", :phone => "984634321")
+	Leaderdetail.create(:leader_id => "5":first_name => "Edel", :last_name => "Gerrard", :gender => "F", :phone => "987755631")
+	Leaderdetail.create(:leader_id => "6":first_name => "Feebee", :last_name => "Foran", :gender => "F", :phone => "568749321")
+	Leaderdetail.create(:leader_id => "7":first_name => "Barry", :last_name => "Denby", :gender => "M", :phone => "123584321")
+	Leaderdetail.create(:leader_id => "8":first_name => "Eoin", :last_name => "Carroll", :gender => "M", :phone => "685329321")
+	Leaderdetail.create(:leader_id => "9":first_name => "Jennifer", :last_name => "Treanor", :gender => "F", :phone => "975429321")
+
+Leader:
+	Leader.create(:password => "gcd", :email => "graham@gcd.com")
+	Leader.create(:password => "gcd", :email => "alan@gcd.com")
+	Leader.create(:password => "gcd", :email => "david@gcd.com")
+	Leader.create(:password => "gcd", :email => "jessica@gcd.com")
+	Leader.create(:password => "gcd", :email => "edel@gcd.com")
+	Leader.create(:password => "gcd", :email => "feebee@gcd.com")
+	Leader.create(:password => "gcd", :email => "barry@gcd.com")
+	Leader.create(:password => "gcd", :email => "eoin@gcd.com")
+	Leader.create(:password => "gcd", :email => "jennifer@gcd.com")
 Record:
 
 Record.create(:member_id => 1, :weight => "23")

@@ -1,3 +1,26 @@
+Database backup and restore:
+
+Local:
+
+Backup:
+
+>  pg_dump -Fc --no-acl --no-owner -h localhost -U myuser mydb > mydb.dump
+
+
+Restore:
+
+>  pg_restore --verbose --clean --no-acl --no-owner -h localhost -U myuser -d mydb latest.dump
+
+Heroku:
+
+heroku pg:info
+
+Restore:
+heroku pg:reset HEROKU_POSTGRESQL_OLIVE_URL
+
+heroku pgbackups:restore HEROKU_POSTGRESQL_OLIVE_URL 'http://olibra.github.io/b002.dump'
+----------------------------------------------------------------------------------------------------------
+
 
 LeaderDetails:
 	Leaderdetail.create(:leader_id => "1", :first_name => "Graham", :last_name => "Glanville", :gender => "M", :phone => "987654321")

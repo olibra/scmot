@@ -103,3 +103,19 @@ Dinner.create(:plan_id => "2", :name => "salmon", :details => "salmon....")
 Dinner.create(:plan_id => "2", :name => "noodles ", :details => "noodles ....")
 Dinner.create(:plan_id => "3", :name => "Caesar Salad", :details => " Caesar Salad ....")
 Dinner.create(:plan_id => "3", :name => "pasta", :details => "pasta ....")
+
+Lunch:
+Lunch.create(:plan_id => "1", :name => "spaghetti", :details => "spaghetti....")
+Lunch.create(:plan_id => "1", :name => "chicken breast", :details => "chicken breast ....")
+Lunch.create(:plan_id => "2", :name => "salmon", :details => "salmon....")
+Lunch.create(:plan_id => "2", :name => "noodles ", :details => "noodles ....")
+Lunch.create(:plan_id => "3", :name => "Caesar Salad", :details => " Caesar Salad ....")
+Lunch.create(:plan_id => "3", :name => "pasta", :details => "pasta ....")
+
+Breakfast:
+Breakfast.create(:plan_id => "1", :name => "spaghetti", :details => "spaghetti....")
+Breakfast.create(:plan_id => "1", :name => "chicken breast", :details => "chicken breast ....")
+Breakfast.create(:plan_id => "2", :name => "salmon", :details => "salmon....")
+Breakfast.create(:plan_id => "2", :name => "noodles ", :details => "noodles ....")
+Breakfast.create(:plan_id => "3", :name => "Caesar Salad", :details => " Caesar Salad ....")
+Breakfast.create(:plan_id => "3", :name => "pasta", :details => "pasta ....")

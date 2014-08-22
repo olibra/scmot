@@ -7,6 +7,10 @@ gem 'rails', '4.1.4'
 gem 'pg'
 
 gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+
+require 'v8'
+gem 'therubyracer', '~> 0.12.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

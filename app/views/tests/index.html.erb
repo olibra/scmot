@@ -1,4 +1,8 @@
 <h2>
+
+
+	Email:<%= Member.find(2).memberdetail.email %><br />
+
 <% @members.each do |member| %>
 	Name :<%= member.memberdetail.first_name %><br />
 	Email:<%= member.memberdetail.email %><br />

@@ -1,7 +1,7 @@
 <h2>
 
 
-	Email:<%= Leader.find(2).password %><br />
+	Email:<%= Leader.find(2).password_digest %><br />
 
 <% @members.each do |member| %>
 	Name :<%= member.memberdetail.first_name %><br />

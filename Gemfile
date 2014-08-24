@@ -7,6 +7,11 @@ gem 'rails', '4.1.5'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+
+#This gem will configure your application to serve static assets 
+#so that you do not need to do this manually in a config file.
+gem 'rails_12factor', '~> 0.0.2', group: :production
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views

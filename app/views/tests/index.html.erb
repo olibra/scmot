@@ -1,17 +1,14 @@
-<h2>
 
+    <div class="container">
 
-	Email:<%= Leader.find(2).password_digest %><br />
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <input type="text" class="form-control" placeholder="Email address" required autofocus>
+        <input type="password" class="form-control" placeholder="Password" required>
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
 
-<% @members.each do |member| %>
-	Name :<%= member.memberdetail.first_name %><br />
-	Email:<%= member.memberdetail.email %><br />
-	My target:<%= member.target %><br />
-	My records:<% @records = member.record %>
-		<% @records.each do |myRecord| %>
-			<%= myRecord.weight %>
-		<% end %>
-		<br /><br />
-<% end %>
-</h2>
-<h1>Hello, world!</h1>
+    </div> <!-- /container -->

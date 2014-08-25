@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+	<div class="panel-heading"><h2>Member Summary</h2></div>
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Plan</th>
+			<th>Current Weight</th>
+			<th>Target Weight</th>
+			<th>Note</th>
+			<th>More</th>
+		</tr>
+		<% @members.each do |member| %>
+		<tr>
+			<td><%= member.id %></td>
+			<td><%= member.memberdetail.first_name %> <%= member.memberdetail.last_name%></td>
+			<td><%= member.plan.name %></td>
+			<td><%= member.currentweight.weight %></td>
+			<td><%= member.target %></td>
+			<td><%= member.note %></td>
+			<!-- <td><%= link_to("Detail", '#', :class => ':action ') %></td>  -->
+			<td><%= link_to("Detail", {:controller => 'members', :action => 'show', :id => member.id}) %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>

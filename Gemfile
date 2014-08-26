@@ -12,6 +12,11 @@ gem 'sass-rails', '~> 4.0.3'
 #so that you do not need to do this manually in a config file.
 gem 'rails_12factor', '~> 0.0.2', group: :production
 
+#gem required for chartkick
+gem 'chartkick', '~> 1.3.2'
+gem 'groupdate', '~> 2.2.1'
+gem 'active_median', '~> 0.1.1'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views

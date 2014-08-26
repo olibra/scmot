@@ -1,0 +1,9 @@
+<div class="row">
+
+  <!-- Line Chart - Single Series -->
+  <div class="col-xs-6">
+    <h3>Visits By Day</h3>
+    <%= column_chart Visit.group_by_hour_of_day(:created_at, format: "%l %P").load_time %>
+  </div>
+  
+</div>

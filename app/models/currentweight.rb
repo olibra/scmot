@@ -2,5 +2,5 @@ class Currentweight < ActiveRecord::Base
 
 	belongs_to 	:member
 
-	scope	:newest_first, lambda {order("currentweight.update_date DESC")}
+	scope	:group_by_id, lambda {|id|where(:member_id => id)}
 end

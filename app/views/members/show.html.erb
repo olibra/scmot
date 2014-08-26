@@ -34,26 +34,13 @@
 			<td>Note:</td>
 			<td><%= @member.note %></td>
 		</tr>
-		<table class="table">
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>Plan</th>
-			<th>Current Weight</th>
-			<th>Target Weight</th>
-			<th>Note</th>
-			<th>More</th>
-		</tr>
-			<tr>
-				<td><%= @member.id %></td>
-				<td><%= @member.memberdetail.first_name %> <%= @member.memberdetail.last_name%></td>
-				<td><%= @member.plan.name %></td>
-				<td><%= @member.currentweight.weight %></td>
-				<td><%= @member.target %></td>
-				<td><%= @member.note %></td>
-				<!-- <td><%= link_to("Detail", '#', :class => ':action ') %></td>  -->
-				<td><%= link_to("Detail", {:controller => 'members', :action => 'show', :id => @member.id}) %></td>
-			</tr>
-		</table>
+		<div class="row">
+
+			<!-- Line Chart - Single Series -->
+			<div class="col-xs-offset-2 col-xs-10">
+				<%= column_chart [["Football", 10], ["Basketball", 5]] %>
+				<%= line_chart @member.record.group(:created_at).sum(:weight) %>
+			</div>
+		</div>
 	</table>
 </div>

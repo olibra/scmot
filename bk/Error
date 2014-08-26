@@ -1,0 +1,82 @@
+Database backup and restore:
+
+Local:
+
+Backup:
+
+>  pg_dump -Fc --no-acl --no-owner -h localhost -U myuser mydb > mydb.dump
+
+
+Restore:
+
+>  pg_restore --verbose --clean --no-acl --no-owner -h localhost -U myuser -d mydb latest.dump
+
+Heroku:
+
+heroku pg:info
+
+Restore:
+heroku pg:reset HEROKU_POSTGRESQL_OLIVE_URL
+
+heroku pgbackups:restore HEROKU_POSTGRESQL_OLIVE_URL 'http://olibra.github.io/b002.dump'
+----------------------------------------------------------------------------------------------------------
+
+
+Error:
+
+
+can not install 'therubyracer' gem:
+
+http://stackoverflow.com/questions/10905820/gem-install-therubyracer-fails-on-mac-os-x-lion
+https://www.ruby-forum.com/topic/4306127
+
+Solution: because there are might be different versions of g++ complier in the system, make sure you are using the one in /usr/bin, and also check the path in bash_profile, make sure the order of those path are the exactly as you want it to be.
+
+Heroku assets pipeline problem
+ref. https://devcenter.heroku.com/articles/rails-4-asset-pipeline
+
+When use custom asset, it works fine on the local machine, everything as you expected; but when you uploaded to heroku, it is not display as it was in local. the problem is the assets pipeline process in heroku. It can be solved by several ways, I chosed the simplest way, which to install a third party gem into project to do the job for me.
+
+
+Bootstrap font loading error
+ref. http://stackoverflow.com/questions/20255711/ruby-on-rails-bootstrap-glyphicons-not-working
+
+how to fix the link with font in bootstrap
+
+
+How to write rails helper with bootstrap classes:
+<%= link_to("Back to the list",{:controller => 'members', :action => 'index'}, :class => "btn btn-primary" )%>
+
+
+
+
+
+Log:
+
+1.bootstrap gem vs 2.manual bootstrap install
+
+1. is difficult to setup, required different gems work together
+2. is just copy paste, and add some lines of code
+
+1. is more powerful and convenient for advanced user, who knows where most files are for, and where everything goes.
+2. is easier for beginner, few step needed, does not need to know how the files are structured, but concentrate on result.
+
+1. is difficult to update and remove.
+2. is easier to reverse
+
+1. what you can use, is limited by how to use it within the gem
+2. what you can use, and how, is based on bootstrap it self, it is depend on the offical docmumentation.
+--------------------------------------------------------------
+
+secure password
+
+bluefish(comparison)
+one-way encryption
+virtual variable
+only a hash value stored in database
+build in confirmation
+
+Migration/change database/backup and restore problem
+
+when backup the database or change one database to another, the schema of the migrations is also backup-ed, then when the new database is created, there is conflict between old migration table and new one.
+My solution to solve this is before restore the database, make a copy of the migration table, after restore the data, delete the migration table it restored, and run SQL query to create the new migration table.

@@ -79,4 +79,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+ # set config in one go
+  config.bulksms do |c|
+    c.username = 'olibra'
+    c.password = 'Shiguangie'
+  end
+
+  # single config options
+  config.bulksms.country = :ie
+
 end

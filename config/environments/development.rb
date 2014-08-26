@@ -34,4 +34,16 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+
+ # set config in one go
+  config.bulksms do |c|
+    c.username = 'olibra'
+    c.password = 'Shiguangie'
+  end
+
+  # single config options
+  config.bulksms.country = :ie
+
+
 end

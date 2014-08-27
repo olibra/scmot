@@ -1,5 +1,7 @@
 class MembersController < ApplicationController
 
+  layout "leader"
+before_action :confirm_logged_in
   def index
     @members = Member.all
   end

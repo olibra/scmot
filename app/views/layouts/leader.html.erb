@@ -31,7 +31,8 @@
             <li class="<%= 'active' if params[:controller] == 'Email' %>" ><%= link_to("Email", {:controller => 'emails', :action => 'index'} )%></li>     
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="<%= 'active' if session[:username].present?%>" ><%= link_to("Hello, "+session[:username], {:controller => 'access', :action => 'index'} )%></li> 
+            <li class="<%= 'active' if session[:username].present?%>" ><%= link_to("Hello, "+session[:username], {:controller => 'access', :action => 'index'} )%></li>
+            <li><%= link_to("Logout", {:controller => 'access', :action => 'index'} )%></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

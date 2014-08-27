@@ -6,6 +6,16 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def check
+    if params[:user_id]
+      flash[:notice] = "You are logged in."
+      redirect_to(:controller => 'leaders', :action => 'index')
+    else
+      redirect_to(:controller => 'homes', :action => 'show')
+      flash[:notice] = "You are NOT loged in."
+    end
+  end
+  
   def confirm_logged_in
   	unless session[:user_id]
   		flash[:notice] = "please log in."

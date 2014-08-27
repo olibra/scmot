@@ -1,3 +1,9 @@
+Shiguang@~/Desktop/scmot $ dropdb 'scmot-olive'
+
+Shiguang@~/Desktop/scmot $ createdb scmot-olive
+
+
+
 Database backup and restore:
 
 Local:
@@ -25,28 +31,35 @@ heroku pgbackups:restore HEROKU_POSTGRESQL_OLIVE_URL 'http://olibra.github.io/b0
 Error:
 
 
-can not install 'therubyracer' gem:
+can not install 'therubyracer' gem for bootstrap:
 
 http://stackoverflow.com/questions/10905820/gem-install-therubyracer-fails-on-mac-os-x-lion
 https://www.ruby-forum.com/topic/4306127
 
 Solution: because there are might be different versions of g++ complier in the system, make sure you are using the one in /usr/bin, and also check the path in bash_profile, make sure the order of those path are the exactly as you want it to be.
+-----------------------------------
 
 Heroku assets pipeline problem
 ref. https://devcenter.heroku.com/articles/rails-4-asset-pipeline
 
 When use custom asset, it works fine on the local machine, everything as you expected; but when you uploaded to heroku, it is not display as it was in local. the problem is the assets pipeline process in heroku. It can be solved by several ways, I chosed the simplest way, which to install a third party gem into project to do the job for me.
-
+---------------------------------------------
 
 Bootstrap font loading error
 ref. http://stackoverflow.com/questions/20255711/ruby-on-rails-bootstrap-glyphicons-not-working
-
 how to fix the link with font in bootstrap
 
+-----------------------------
 
 How to write rails helper with bootstrap classes:
 <%= link_to("Back to the list",{:controller => 'members', :action => 'index'}, :class => "btn btn-primary" )%>
 
+-----------------------------------------------
+
+??New data entered to Leader table, but there is no index on each row?
+>only when you setup password, and that password has been trslate to hash by rail, the id will be signed.
+
+---------------------------------------------------
 
 
 
@@ -105,5 +118,12 @@ layout "member"
     <div class="span2"></div>                            
 </div>
 
+before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
+before_action   :check, :except => [:show]
+before_action :choose, :only => [:show]
+
+<iframe class="embed-responsive-item" src="<%= @portals.find(4).url%>" allowfullscreen=""/>
+
+Leader.find(1).errors.full_messages
 
 

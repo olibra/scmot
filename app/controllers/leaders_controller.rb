@@ -1,6 +1,6 @@
 class LeadersController < ApplicationController
 
-  layout "leader"
+  layout false
   def home
   end
 

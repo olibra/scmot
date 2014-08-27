@@ -8,7 +8,6 @@ class CreateMemberdetails < ActiveRecord::Migration
     	t.string "gender", :limit => 6, :null => false, :default => ""
     	t.integer "age", :default => 0, :null => false
     	t.string "phone", :limit => 15, :null => false, :default => ""
-    	t.string "email", :limit => 50
     	t.string "facebook", :limit => 50
     end
     add_index("memberdetails", "member_id")

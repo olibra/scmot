@@ -6,6 +6,18 @@
     margin: 5px;
 }
 
+.navbar-brand {
+    font-size: 25px;
+}
+
+.nav > li > a {
+     font-size: 18px;
+}
+
+.navbar-right > li{
+	margin-right: 20px;
+}
+
 body {
 	margin: 20px;
   padding-top: 20px;

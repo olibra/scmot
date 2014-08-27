@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825164715) do
+ActiveRecord::Schema.define(version: 20140827134956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 20140825164715) do
     t.string  "gender",     limit: 6,                          default: "",  null: false
     t.integer "age",                                           default: 0,   null: false
     t.string  "phone",      limit: 15,                         default: "",  null: false
-    t.string  "email",      limit: 50
     t.string  "facebook",   limit: 50
   end
 
@@ -93,16 +92,30 @@ ActiveRecord::Schema.define(version: 20140825164715) do
 
   create_table "members", force: true do |t|
     t.integer "plan_id"
-    t.decimal "target",  precision: 5, scale: 2, default: 0.0, null: false
+    t.integer "group_id"
+    t.string  "email",           limit: 50,                         default: "",  null: false
+    t.string  "password_digest"
+    t.decimal "target",                     precision: 5, scale: 2, default: 0.0, null: false
     t.text    "note"
   end
 
+  add_index "members", ["email"], name: "index_members_on_email", using: :btree
   add_index "members", ["plan_id"], name: "index_members_on_plan_id", using: :btree
 
   create_table "plans", force: true do |t|
     t.string "name",    limit: 30, default: "", null: false
     t.text   "details"
   end
+
+  create_table "portals", force: true do |t|
+    t.integer "group_id"
+    t.string  "area",       limit: 30, default: "", null: false
+    t.text    "url"
+    t.text    "content"
+    t.date    "updated_at"
+  end
+
+  add_index "portals", ["group_id"], name: "index_portals_on_group_id", using: :btree
 
   create_table "records", force: true do |t|
     t.integer "member_id"

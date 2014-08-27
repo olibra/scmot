@@ -1,34 +1,12 @@
 Rails.application.routes.draw do
 
-
-  get 'emails/new'
-
-  get 'emails/index'
-
-  get 'emails/edit'
-
-  get 'emails/delete'
-
-  get 'emails/show'
-
-  get 'messages/new'
-
-  get 'messages/index'
-
-  get 'messages/edit'
-
-  get 'messages/delete'
-
-  get 'messages/show'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
 
-  root :to => 'leaders#home', :via => [:get , :post]
 
-  get 'admin', :to => 'access#index'
+  root :to => 'homes#show', :via => [:get , :post]
 
   #default route
   match ':controller(/:action(/:id))', :via => [:get , :post]

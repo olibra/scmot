@@ -88,4 +88,22 @@ Useful methods:
 <li class="<%= 'active' if session[:username].present?%>" >
 layout "member"
 
+<div class="accordion-heading">
+    <a class="accordion-toggle"
+       data-toggle="collapse"
+       data-parent="#accordion2"
+       href="#collapseOne">Open!</a>
+</div>
+<div id="collapseOne" class="accordion-body sidebar collapse">
+    <div class="span6">
+        <div class="well well-small">
+            <div class="accordion-toggle">
+                ...some text...
+            </div>
+        </div>
+    </div>
+    <div class="span2"></div>                            
+</div>
+
+
 

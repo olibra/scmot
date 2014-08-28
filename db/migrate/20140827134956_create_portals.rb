@@ -8,6 +8,7 @@ class CreatePortals < ActiveRecord::Migration
 	    t.date "updated_at"
     end
     add_index("portals", "group_id")
+    #add_index("portals", "updated_at")
   end
 
   def down

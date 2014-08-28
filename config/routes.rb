@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
 
-  root :to => 'homes#show', :via => [:get , :post]
+  root :to => 'access#show', :via => [:get , :post]
 
   #default route
   match ':controller(/:action(/:id))', :via => [:get , :post]

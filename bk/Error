@@ -126,4 +126,17 @@ before_action :choose, :only => [:show]
 
 Leader.find(1).errors.full_messages
 
+<%= render(:partial => "header", :local => {:foo => f}) %>
+
+scope :group_by_id, lambda {|id|where(:member_id => id)}
+
+5.downto(1) do |number|
+     puts number.to_s
+   end
+
+
+
+
+
+
 

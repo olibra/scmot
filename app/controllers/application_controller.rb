@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "You are logged in."
       redirect_to(:controller => 'leaders', :action => 'index')
     else
-      redirect_to(:controller => 'homes', :action => 'show')
+      redirect_to(:controller => 'access', :action => 'login')
       flash[:notice] = "You are NOT loged in."
     end
   end

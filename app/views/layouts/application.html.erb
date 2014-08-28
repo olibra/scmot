@@ -18,20 +18,27 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to("SCMOT", {:controller => 'home', :action => 'index'}, :class => 'navbar-brand') %>
+          <%= link_to("SCMOT", {:controller => 'access', :action => 'show'}, :class => 'navbar-brand') %>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="<%= 'active' if params[:controller] == 'members' %>" ><%= link_to("Member", {:controller => 'members', :action => 'index'} )%></li>
-            <li class="<%= 'active' if params[:controller] == 'leaders' %>" ><%= link_to("Leader", {:controller => 'leaders', :action => 'index'} )%></li>
-            <li class="<%= 'active' if params[:controller] == 'Message' %>" ><%= link_to("Message", {:controller => 'messages', :action => 'index'} )%></li>
-            <li class="<%= 'active' if params[:controller] == 'Email' %>" ><%= link_to("Email", {:controller => 'emails', :action => 'index'} )%></li>     
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Areas<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <% @portals.each do |portal|%>
+                <li><%= link_to(portal.area, {:controller => 'access', :action => 'show', :p_id => portal.id} )%></li>
+                <li class="divider"></li>
+                <% end %>
+              </ul>
+            </li>    
           </ul>
+          <% @re %>
+          <% params[:p_id] ? @tem=@portals.find(params[:p_id]).area : @tem=@portals.first.area%>
           <ul class="nav navbar-nav navbar-right">
-            <li class="<%= 'active' if session[:username].present?%>" ><%= link_to("Hello, "+session[:username], {:controller => 'access', :action => 'index'} )%></li>
-            <li><%= link_to("Logout", {:controller => 'homes', :action => 'logout'} )%></li>
-          </ul>
+              <li class="active" ><%= link_to("Welcome to   "+@tem+ "   Portal page" , {:controller => 'access', :action => 'index'} )%></li>
+            <li><%= link_to("Login", {:controller => 'access', :action => 'login'} )%></li>
+          </ul> 
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>

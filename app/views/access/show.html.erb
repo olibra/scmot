@@ -1,0 +1,24 @@
+<div class="row">
+	<% params[:p_id] ? @tem=@portals.find(params[:p_id]).url : @tem=@portals.first.url%>
+	<div class="col-md-7">
+		<div class="jumbotron">
+	  		<h3>Video of the day:</h3>
+	  		<div class="bs-example">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe width="640" height="360" src="<%= @tem %>" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+	  	<p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+	</div>
+	<div class="col-md-5">
+		<div class="jumbotron">
+	  		<h1>Hello, <%= @tem %></h1>
+	  		<div class="bs-example">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="<%= @tem %>" allowfullscreen=""></iframe>
+				</div>
+			</div>
+		</div>
+	  	<p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+	</div>
+</div>

@@ -1,13 +1,22 @@
 class AccessController < ApplicationController
   
+	before_action :confirm_logged_in, :except => [:show, :login, :attempt_login, :logout]
 
-	before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
-
-  def index
-  	# display text & links
+  def show
+    if params[:p_id]
+      @re = Portal.find(params[:p_id])
+      @portals = Portal.all
+    else
+      @portals = Portal.all
+    end
   end
 
   def login
+    if params[:username]
+      @portals = Portal.all
+    else
+      @portals = Portal.recent
+    end
   	# login form
   end
 

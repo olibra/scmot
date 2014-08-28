@@ -31,11 +31,34 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="<%= 'active' if session[:username].present?%>" ><%= link_to("Hello, "+session[:username], {:controller => 'access', :action => 'index'} )%></li>
-            <li><%= link_to("Logout", {:controller => 'homes', :action => 'logout'} )%></li>
+            <li><%= link_to("Logout", {:controller => 'access', :action => 'logout'} )%></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Params</h3>
+        </div>
+        <div class="panel-body">
+          <%= params.inspect %>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Session</h3>
+        </div>
+        <div class="panel-body">
+          username -> <%= session[:username] %>
+          <br />
+          id ->  <%= session[:user_id] %>
+          type ->  <%= session[:type] %>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-2" id="info-bar"><a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><%= image_tag('list.png')%>Options</a></div>
     </div>
@@ -61,6 +84,7 @@
           </div>
           <!-- /#page-content-wrapper -->
     </div>
+
     <script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();

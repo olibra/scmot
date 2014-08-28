@@ -1,14 +1,19 @@
 class AccessController < ApplicationController
   
-	before_action :confirm_logged_in, :except => [:show, :login, :attempt_login, :logout]
+	before_action :confirm_logged_in, :except => [:show, :index, :login, :attempt_login, :logout]
+  before_action :check_session, :except => [:logout, :show]
 
-  def show
+  def index
     if params[:p_id]
-      @re = Portal.find(params[:p_id])
       @portals = Portal.all
     else
-      @portals = Portal.all
-    end
+      @portals = Portal.recent
+    end  
+  end
+
+  def show
+    @portals = Portal.recent
+    @plan = Plan.find(1)
   end
 
   def login
@@ -22,7 +27,7 @@ class AccessController < ApplicationController
 
   def attempt_login
     if params[:username].present? && params[:password].present?
-      found_user = Leader.where(:email => params[:username]).first
+      found_user = Member.where(:email => params[:username]).first
       if found_user
         authorized_user = found_user.authenticate(params[:password])
       end
@@ -30,7 +35,8 @@ class AccessController < ApplicationController
     if authorized_user
       # mark user as logged in
       session[:user_id] = authorized_user.id
-      session[:username] = authorized_user.leaderdetail.first_name
+      session[:username] = authorized_user.memberdetail.first_name
+      session[:type] = "member"
       flash[:notice] = "You are now logged in."
       redirect_to(:controller => 'members', :action => 'index')
     else
@@ -44,8 +50,18 @@ class AccessController < ApplicationController
     session[:user_id] = nil
     session[:username] = nil
     flash[:notice] = "Logged out"
-    redirect_to(:action => "login")
+    redirect_to(:controller => "access", :action => "show")
   end
 
+  private
+
+  def check_session
+    if session[:user_id] && session[:type]="leader"
+      redirect_to(:controller => 'leaders', :action => 'index')
+    elsif session[:user_id] && session[:type]="member"
+      redirect_to(:controller => 'members', :action => 'index')
+    else  redirect_to(:controller => 'access', :action => 'show')
+    end
+  end
 
 end

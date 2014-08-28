@@ -1,11 +1,42 @@
-<div class="menu">
-  <h2>Admin Menu</h2>
-  <div class="identity">Logged in as: <%= session[:username]%></div>
-  <ul>
-    <li><%= link_to("Manage Subjects", :controller => 'subjects') %></li>
-    <li><%= link_to("Manage Pages", :controller => 'pages') %></li>
-    <li><%= link_to("Manage Sections", :controller => 'sections') %></li>
-    <li><%= link_to("Manage Admin Users", '#') %></li>
-    <li><%= link_to("Logout", :action => 'logout') %></li>
-  </ul>
+<div class="row"><div class="col-md-12"><div class="text-center"><%= link_to("Back to the list",{:controller => 'members', :action => 'index'}, :class => "btn btn-primary" )%></div></div></div>
+
+<div class="panel panel-default">
+	<div>
+		<div class="panel-heading"><h2>Member Detail </h2></div>
+	</div>
+	<table class="table table-hover">
+	
+		<tr>
+			<td>Name:</td>
+			<td><%= @member.memberdetail.first_name %> <%= @member.memberdetail.last_name%></td>
+		</tr>
+		<tr>
+			<td>Gender:</td>
+			<td><%= @member.memberdetail.gender %></td>
+		</tr>
+		<tr>
+			<td>Age:</td>
+			<td><%= @member.memberdetail.age %></td>
+		</tr>
+		<tr>
+			<td>Phone:</td>
+			<td><%= @member.memberdetail.phone %></td>
+		</tr>
+		<tr>
+			<td>Facebook:</td>
+			<td><%= @member.memberdetail.facebook %></td>
+		</tr>
+		<tr>
+			<td>Note:</td>
+			<td><%= @member.note %></td>
+		</tr>
+		<div class="row">
+
+			<!-- Line Chart - Single Series -->
+			<div class="col-xs-offset-2 col-xs-10">
+				<%= column_chart [["Football", 10], ["Basketball", 5]] %>
+				<%= line_chart @member.record.group(:created_at).sum(:weight) %>
+			</div>
+		</div>
+	</table>
 </div>

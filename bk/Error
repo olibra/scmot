@@ -94,6 +94,12 @@ Migration/change database/backup and restore problem
 when backup the database or change one database to another, the schema of the migrations is also backup-ed, then when the new database is created, there is conflict between old migration table and new one.
 My solution to solve this is before restore the database, make a copy of the migration table, after restore the data, delete the migration table it restored, and run SQL query to create the new migration table.
 
+--------------------------------------------
+Feature work:
+
+>pictures could be added into the menu.
+>more javascript, jquery, and ajax, conform dialog....
+
 -------------------------------------------------------
 Useful methods:
 <div class="identity">Logged in as: <%= session[:username]%></div>

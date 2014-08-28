@@ -10,8 +10,16 @@
     font-size: 25px;
 }
 
+#show-row{
+	margin-left: 0px;
+	margin-right: 0px;
+}
 .nav > li > a {
      font-size: 18px;
+}
+
+.jumbotron > h2{
+	margin-bottom: 20px;
 }
 
 .navbar-right > li{

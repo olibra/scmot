@@ -33,6 +33,29 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Params</h3>
+        </div>
+        <div class="panel-body">
+          <%= params.inspect %>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Session</h3>
+        </div>
+        <div class="panel-body">
+          username -> <%= session[:username] %>
+          <br />
+          id ->  <%= session[:user_id] %>
+        </div>
+      </div>
+    </div>
+
   <%= yield%>
+
 </body>
 </html>
